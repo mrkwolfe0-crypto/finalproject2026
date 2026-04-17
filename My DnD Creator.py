@@ -17,6 +17,20 @@ def stat():
     total = sum(dice_roll[0:3])
     return total
 
+def Player_stat():
+    result = {}
+    Players_stats = ["STR", "DEX", "CON",
+                     "INT", "WIS", "CHA"]
+    for Player_stat in Players_stats:
+        pstat = stat()
+        key = Player_stat
+        value = pstat
+        result[key] = value
+    return result
+
+pstats = Player_stat()
+print(pstats)
+
 def Player_class():
     classes = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
            "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard",
@@ -33,15 +47,13 @@ def Player_class():
     print(f"You have chosen the path of the {player_class}")    
 #Player_class()
 
-def Player_stat():
-    result = []
-    Players_stats = ["Strength(STR)", "Dexterity(DEX)", "Constitution(CON)",
-                     "Intelligence(INT)", "Wisdom(WIS)", "Charisma(CHA)"]
-    for Player_stat in Players_stats:
-        pstat = stat()
-        result.append(f"{Player_stat}: {pstat}")
-    return result
-#Player_stat()
+
+"""armor = [ "Light Armor" = ["Padded Armor", "Studded Leather"],
+          "Medium Armor" = ["Hide", "Scale Mail", "Breastplate", "Half Plate"]
+          "Heavy" = ["Ring Mail", "Chain Mail", "Splint"]
+]
+ac = ["Padded Armor:11+"]"""
+    
 
 def Weapon():
     Weapon_types = {
@@ -75,14 +87,14 @@ def Weapon_selection():
             print(f"{choose_weapon} is not in the armory. Try again.")
             return
 
-pstats = Player_stat()
+#pstats = Player_stat()
 w = Weapon_selection()
 c = Player_class()
 name = input("enter name: ")
 
 
 print(f"{name}, {c}, {w}")
-print(*pstats, sep ="\n")
+print(pstats)
 
         
 
