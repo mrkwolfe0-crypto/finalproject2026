@@ -30,3 +30,4 @@ def Weapon_selection():
         else:
             print(f"{choose_weapon} is not in the armory. Try again.")
             return
+Weapon_selection()

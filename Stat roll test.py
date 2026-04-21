@@ -1,3 +1,4 @@
+ßimport random
 def roll():
     return random.randint(1,6)
 
@@ -15,6 +16,7 @@ def stat():
     total = sum(dice_roll[0:3])
     return total
 
+stat()
 def Player_stat():
     result = []
     Players_stats = ["Strength(STR)", "Dexterity(DEX)", "Constitution(CON)",
@@ -24,3 +26,7 @@ def Player_stat():
         result.append(f"{Player_stat}: {pstat}")
     return result
 #Player_stat()
+    print(result)
+    return result
+
+Player_stat()

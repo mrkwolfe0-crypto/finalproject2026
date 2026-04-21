@@ -13,3 +13,4 @@ def Player_class():
             print({player_class}, "is not a valid class. Select again")
     print(f"You have chosen the path of the {player_class}")    
 #Player_class()
+Player_class()
