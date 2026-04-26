@@ -177,7 +177,15 @@ def myDnD_pygame(name, c, w, a, pstats):
 
     running = True
     while running:
-        screen.fill((40, 44, 52))
+        screen.fill((0,0,0))
+        """
+        Color guide
+        black = (0,0,0)
+        white = (255,255,255)
+        gray = (128,128,128)
+        dark_gray = (50,50,50)
+        light_gray = (200,200,200)
+        """
 
         title = font_main.render(f"{name} the {c}", True, (255,215,0))
         screen.blit(title, (20,20))
