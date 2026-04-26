@@ -170,8 +170,8 @@ print(pstats)"""
 
 def myDnD_pygame(name, c, w, a, pstats):
     pygame.init()
-    screen = pygame.display/set_mode((500, 400))
-    pygame.disdplay.set_caption("D&D Character Sheet")
+    screen = pygame.display.set_mode((500, 400))
+    pygame.display.set_caption("D&D Character Sheet")
     font_main = pygame.font.SysFont("Arial", 24, bold=True)
     font_sub = pygame.font.SysFont("Arial", 18)
 
@@ -183,7 +183,7 @@ def myDnD_pygame(name, c, w, a, pstats):
         screen.blit(title, (20,20))
 
         y_pos = 70
-        for stat, value in stats.items():
+        for stat, value in pstats.items():
             mod = (value - 10) // 2
             stat_text = font_sub.render(f"{stat}: {value} ({mod:+})", True, (255, 255, 255))
             screen.blit(stat_text, (20, y_pos))
@@ -191,10 +191,10 @@ def myDnD_pygame(name, c, w, a, pstats):
 
         pygame.draw.line(screen, (100, 100, 100), (250, 70), (250, 300), 2)
         
-        arm_data = Armor_bonuses[armor]
+        arm_data = Armor_bonuses[parmor]
         base = arm_data["base"]
         cap = arm_data["dex_mod"]
-        dex_val = (stats["DEX"] - 10)//2
+        dex_val = (pstats["DEX"] - 10)//2
 
         if cap is None: applicable_dex = dex_val
         elif cap == 0: applicable_dex = 0
@@ -202,19 +202,20 @@ def myDnD_pygame(name, c, w, a, pstats):
         pac = base + applicable_dex
 
         ac_label = font_main.render(f"AC: {pac}", True, (0, 255, 150))
-        armor_label = font_sub.render(f"Armor: {armor}", True, (200, 200, 200))
-        weapon_label = font_sub.render(f"Weapon: {weapon}", True, (200, 200, 200))
+        armor_label = font_sub.render(f"Armor: {parmor}", True, (200, 200, 200))
+        weapon_label = font_sub.render(f"Weapon: {w}", True, (200, 200, 200))
         
         screen.blit(ac_label, (280, 70))
         screen.blit(armor_label, (280, 110))
         screen.blit(weapon_label, (280, 140))
 
-        for event in pygame.get():
+        for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 runing = False
         pygame.display.flip()
     pygame.quit()
 myDnD_pygame(name, c, w, a, pstats)
+
     
     
 
