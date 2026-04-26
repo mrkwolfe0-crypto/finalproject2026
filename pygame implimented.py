@@ -58,7 +58,7 @@ def Player_class():
         if player_class in classes:
             return player_class
             break
-    print(f"You have chosen the path of the {player_class}")    
+    return {player_class}   
 #Player_class()
 
 """
@@ -95,21 +95,6 @@ def Armor():
             print(armor)
     return all_armor
 #all_armor = Armor()
-all_armor = Armor()
-
-def Armor():
-    Armor_types = { 
-        "No Armor" : ["No Armor"],
-        "Light Armor" : ["Padded Armor", "Studded Leather"],
-        "Medium Armor" : ["Hide", "Scale Mail", "Breastplate", "Half Plate"],
-        "Heavy" : ["Ring Mail", "Chain Mail", "Splint"]
-    }
-    all_armor = []
-    for category_list in Armor_types.values():
-        for armor in category_list:
-            all_armor.append(armor)
-            #print(armor)
-    return all_armor
 #all_armor = Armor()
 
 def Armor_selection():
@@ -118,7 +103,7 @@ def Armor_selection():
         choose_armor = input("Choose desired armor of choice: ").title()
         if choose_armor in armor_armory:
             return choose_armor
-parmor = Armor_selection()
+#parmor = Armor_selection()
 
 
 def AC():
@@ -135,9 +120,12 @@ def AC():
         applicable_dex = min(dex_val, cap)
     pac = base + applicable_dex
     #print(stats)
-    print("Base AC", base, 
+    return ("Base AC", base, 
         "Dex Modifier", dex_mod,
         "Modified AC", pac)
+    """print("Base AC", base, 
+        "Dex Modifier", dex_mod,
+        "Modified AC", pac)"""
 
 def Weapon():
     Weapon_types = {
@@ -171,22 +159,62 @@ parmor = Armor_selection()
 a = parmor
 w = Weapon_selection()
 c = Player_class()
+pac = AC()
 name = input("enter name: ")
 
 
 """print(f"{name}, {c}, {w}")
 print(f"Armor", {a})
-AC()
+#print(pac)
 print(pstats)"""
 
-def myDnD_pygame(name, p_class, weapon, armor, stats):
+def myDnD_pygame(name, c, w, a, pstats):
     pygame.init()
-    screen = pygame.display/set_mode((640, 640))
-    
+    screen = pygame.display/set_mode((500, 400))
     pygame.disdplay.set_caption("D&D Character Sheet")
+    font_main = pygame.font.SysFont("Arial", 24, bold=True)
+    font_sub = pygame.font.SysFont("Arial", 18)
 
+    running = True
+    while running:
+        screen.fill((40, 44, 52))
 
-    #while running:
+        title = font_main.render(f"{name} the {c}", True, (255,215,0))
+        screen.blit(title, (20,20))
 
+        y_pos = 70
+        for stat, value in stats.items():
+            mod = (value - 10) // 2
+            stat_text = font_sub.render(f"{stat}: {value} ({mod:+})", True, (255, 255, 255))
+            screen.blit(stat_text, (20, y_pos))
+            y_pos += 30
+
+        pygame.draw.line(screen, (100, 100, 100), (250, 70), (250, 300), 2)
+        
+        arm_data = Armor_bonuses[armor]
+        base = arm_data["base"]
+        cap = arm_data["dex_mod"]
+        dex_val = (stats["DEX"] - 10)//2
+
+        if cap is None: applicable_dex = dex_val
+        elif cap == 0: applicable_dex = 0
+        else: applicable_dex = min(dex_val, cap)
+        pac = base + applicable_dex
+
+        ac_label = font_main.render(f"AC: {pac}", True, (0, 255, 150))
+        armor_label = font_sub.render(f"Armor: {armor}", True, (200, 200, 200))
+        weapon_label = font_sub.render(f"Weapon: {weapon}", True, (200, 200, 200))
+        
+        screen.blit(ac_label, (280, 70))
+        screen.blit(armor_label, (280, 110))
+        screen.blit(weapon_label, (280, 140))
+
+        for event in pygame.get():
+            if event.type == pygame.QUIT:
+                runing = False
+        pygame.display.flip()
     pygame.quit()
+myDnD_pygame(name, c, w, a, pstats)
+    
+    
 
