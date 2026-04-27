@@ -56,9 +56,7 @@ def Player_class():
     while True:
         player_class = input("Choose your class: ").capitalize()
         if player_class in classes:
-            return player_class
-            break
-    return {player_class}   
+            return player_class  
 #Player_class()
 
 """
