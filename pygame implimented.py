@@ -168,7 +168,7 @@ print(pstats)"""
 
 def myDnD_pygame(name, c, w, a, pstats):
     pygame.init()
-    screen = pygame.display.set_mode((500, 400))
+    screen = pygame.display.set_mode((640, 400))
     pygame.display.set_caption("D&D Character Sheet")
     font_main = pygame.font.SysFont("Arial", 24, bold=True)
     font_sub = pygame.font.SysFont("Arial", 18)
