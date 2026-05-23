@@ -211,7 +211,7 @@ def myDnD_pygame(name, c, w, a, pstats):
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                runing = False
+                running = False
         pygame.display.flip()
     pygame.quit()
 myDnD_pygame(name, c, w, a, pstats)
