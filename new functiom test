@@ -1,0 +1,55 @@
+
+import random
+def roll():
+    return random.randint(1,6)
+
+def stat():
+    dice_roll = []
+    d1 = roll()
+    dice_roll.append(d1)
+    d2 = roll()
+    dice_roll.append(d2)
+    d3 = roll()
+    dice_roll.append(d3)
+    d4 = roll()
+    dice_roll.append(d4)
+    dice_roll.sort(reverse = True)
+    total = sum(dice_roll[0:3])
+    return total
+def Player_stat():
+    result = {}
+    Players_stats = ["STR", "DEX", "CON",
+                     "INT", "WIS", "CHA"]
+    for Player_stat in Players_stats:
+        pstat = stat()
+        key = Player_stat
+        value = pstat
+        result[key] = value
+    return result
+    
+def get_modifier(Player_stat):
+    return (Player_stat - 10) // 2
+
+
+pstats = Player_stat()
+
+
+print(f"Stats generated: {pstats}")
+
+print("\n--- Ability Modifiers ---")
+for stat_name, score in pstats.items():
+    mod = get_modifier(score)
+    
+    print(f"{stat_name}: {score} | Modifier: {mod:+d}")
+
+
+parmor = "Scale Mail"
+stats = Armor_bonuses[parmor]
+dex_mod = get_modifier(pstats["DEX"])
+
+
+applicable_dex = min(dex_mod, stats["dex_mod"]) if stats["dex_mod"] is not None else dex_mod
+pac = stats["base"] + applicable_dex
+
+print(f"\n--- Armor Details ({parmor}) ---")
+print(f"Base AC: {stats['base']} | Dex Mod Applied: {applicable_dex} | Total AC: {pac}")
