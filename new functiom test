@@ -35,7 +35,15 @@ pstats = Player_stat()
 
 
 print(f"Stats generated: {pstats}")
-
+"""
+Even though the video emphacised using dashes they are not needed. 
+The dashes (---) are used purely as a **visual formatting technique** to create a separator. In programming, especially when building command-line tools or text-based interfaces, this is a common practice for several reasons:
+ * **Readability**: They create a clear "break" in the console output, which prevents the results from looking like a single, dense block of text.
+ * **Hierarchical Organization**: By surrounding text with these characters, you are creating a visual header that helps you distinguish between different sections of your data—like separating your "Character Sheet" stats from your "Armor Details".
+ * **Debugging**: When you are coding, it makes it much easier to identify exactly where one function finishes printing and another begins.
+It is the text-based equivalent of using dividers in your A/V storyboarding or section breaks in a blog post to guide the viewer’s eye through the narrative. It doesn't affect how your code runs, but it makes the output much more professional and easier to navigate while you are testing your logic.
+Does having that visual separation make it easier for you to see if your get_modifier function is outputting the correct values for each stat during your testing?
+"""
 print("\n--- Ability Modifiers ---")
 for stat_name, score in pstats.items():
     mod = get_modifier(score)
