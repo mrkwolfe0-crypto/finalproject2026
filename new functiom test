@@ -50,6 +50,19 @@ for stat_name, score in pstats.items():
     
     print(f"{stat_name}: {score} | Modifier: {mod:+d}")
 
+Armor_bonuses = {
+    #Armor, Base AC for armor, Dex modifier, Cap
+    "No Armor" : {"base": 10, "dex_mod": None},
+    "Padded Armor": {"base": 11, "dex_mod": None}, 
+    "Studded Leather": {"base":12, "dex_mod": None}, 
+    "Hide" : {"base":14, "dex_mod":2}, 
+    "Scale Mail" : {"base":14, "dex_mod":2}, 
+    "Breastplate" : {"base":14, "dex_mod":2}, 
+    "Half Plate" : {"base":15, "dex_mod":2}, 
+    "Ring Mail" : {"base":14, "dex_mod":0}, 
+    "Chain Mail" : {"base":18, "dex_mod":0}, 
+    "Splint" : {"base":17, "dex_mod":0}
+    }
 
 parmor = "Scale Mail"
 stats = Armor_bonuses[parmor]
