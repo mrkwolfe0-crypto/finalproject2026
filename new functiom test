@@ -101,3 +101,30 @@ pac = stats["base"] + applicable_dex
 
 print(f"\nArmor Details ({parmor})")
 print(f"Base AC: {stats['base']} | Dex Mod Applied: {applicable_dex} | Total AC: {pac}")
+
+def Weapon():
+    Weapon_types = {
+        "Simple_melee" : ["Dagger", "Clubs", "Maces", "Spears", "Quarterstaffs"],
+        "Simple_range" : ["Light Crossbows", "Shortbows", "Darts", "Slings"],
+        "Martial_melee" : ["Longswords", "Greataxes", "Rapiers", "Halberds"],
+        "Martial_ranged" : ["Longbows", "Heavy Crossbows", "Hand Crossbows"],
+    }
+    """Find a way to insert the weapon damage, type of damage and the primary stat for the weapon."""
+
+    for category_list in Weapon_types.values():
+        for weapon in category_list:
+            print(weapon)
+
+    all_weapons = []
+    for category_list in Weapon_types.values(): 
+        for weapon in category_list:
+            all_weapons.append(weapon)
+            #print(all_weapons)
+    return all_weapons 
+
+def Weapon_selection():
+    armory = Weapon()
+    while True:
+         choose_weapon = input("Choose desired weapon of choice: ").title()
+         if choose_weapon in armory:
+             return choose_weapon
