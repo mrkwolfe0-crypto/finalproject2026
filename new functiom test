@@ -50,7 +50,7 @@ print("\nAbility Modifiers")
 for stat_name, score in pstats.items():
     mod = get_modifier(score)
     
-    print(f"{stat_name}: {score}  Modifier: {mod:+d}")
+    print(f"{stat_name}: {score}  Modifier: {mod}")
 
 Armor_bonuses = {
     #Armor, Base AC for armor, Dex modifier, Cap
