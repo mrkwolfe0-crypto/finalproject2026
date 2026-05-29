@@ -28,6 +28,9 @@ def Player_stat():
         result[key] = value
     return result
 
+def get_modifier(Player_stat):
+    return (Player_stat - 10) // 2
+
 pstats = Player_stat()
 print(pstats)
 
