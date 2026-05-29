@@ -95,7 +95,6 @@ def Armor():
             all_armor.append(armor)
             print(armor)
     return all_armor
-#all_armor = Armor()
 all_armor = Armor()
 
 def Armor():
