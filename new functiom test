@@ -68,7 +68,7 @@ Armor_bonuses = {
 """
 Weapon stats can be populated by replicating how I did the armor bonuses.
 """
-def Armor():
+"""def Armor():
     Armor_types = { 
         "No Armor" : ["No Armor"],
         "Light Armor" : ["Padded Armor", "Studded Leather"],
@@ -80,6 +80,23 @@ def Armor():
         for armor in category_list:
             all_armor.append(armor)
             print(armor)
+    return all_armor
+"""
+def Armor():
+    Armor_types = { 
+        "No Armor" : ["No Armor"],
+        "Light Armor" : ["Padded Armor", "Studded Leather"],
+        "Medium Armor" : ["Hide", "Scale Mail", "Breastplate", "Half Plate"],
+        "Heavy" : ["Ring Mail", "Chain Mail", "Splint"]
+    }
+    all_armor = []
+    
+    for category, category_list in Armor_types.items():
+        print(f"{category}\n") 
+        for armor in category_list:
+            all_armor.append(armor)
+            print(armor)
+            
     return all_armor
 """
 The method I am using takes all the content from the buckets and pri ts them. Using the item() method I will get a print out that will show the container or in this case the category the armor falls into. Also applicable to the weapon list.
