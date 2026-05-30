@@ -43,20 +43,10 @@ That line will work, but as you guessed, it will have a "jagged" look because ST
 To get those perfect columns without needing to guess how many spaces to type, you can use **field width specifiers** inside your f-string. This tells Python, "Reserve X amount of space for this value."
 ### How to use column padding
 In an f-string, you add :X (where X is the number of spaces) after the variable name to reserve a fixed width.
- * {stat_name:<4}: This reserves 4 spaces for the stat name and aligns it to the left.
- * {score:<3}: This reserves 3 spaces for the score and aligns it to the left.
-Here is how you would structure it to make everything line up vertically:
-```python
-# The header
-print(f"{'Stat':<5} {'Score':<5} {'Modifier'}")
 
-# The loop
-for stat_name, score in pstats.items():
-    mod = get_modifier(score)
-    # The numbers inside the curly braces set the column width
-    print(f"{stat_name:<5} {score:<5} {mod}")
+Sorry I told Gemini not to finish my code for me. but it seems to reset every promot.
 
-```
+
 ### Why this is the "best" way:
  1. **Alignment**: Because you’ve set a width of 5, the "Score" column will always start at the exact same horizontal position, regardless of whether the stat is a single digit or a double digit.
  2. **No More Counting**: You don't have to manually count spaces or hit the spacebar multiple times. You just define the "lane" you want the data to live in.
