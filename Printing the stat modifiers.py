@@ -37,15 +37,11 @@ print("\nModifier Scores\n")
 
 for stat_name, score in pstats.items():
     mod = get_modifier(score)
+    print(f"{'Stat':<5} {'Score':<5} {'Modifier'}")
     print(f"{stat_name}: {score}  Modifier: {mod}")
 """
 That line will work, but as you guessed, it will have a "jagged" look because STR and CHA are different lengths, and 8 and 15 are different lengths.
 To get those perfect columns without needing to guess how many spaces to type, you can use **field width specifiers** inside your f-string. This tells Python, "Reserve X amount of space for this value."
-### How to use column padding
-In an f-string, you add :X (where X is the number of spaces) after the variable name to reserve a fixed width.
-
-Sorry I told Gemini not to finish my code for me. but it seems to reset every promot.
-
 
 ### Why this is the "best" way:
  1. **Alignment**: Because you’ve set a width of 5, the "Score" column will always start at the exact same horizontal position, regardless of whether the stat is a single digit or a double digit.
@@ -68,5 +64,4 @@ To understand *why* this works, it helps to think of it as allocating a "box" of
  * **Padding:** The process of filling the remaining characters in that width with empty spaces automatically.
 By mastering these three concepts, you move from "guessing spaces" to "structuring data," which is the fundamental difference between a messy console output and a clean, readable table.
 """
-print(f"{'Stat':<5} {'Score':<5} {'Modifier'}")
 
