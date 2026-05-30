@@ -91,7 +91,7 @@ def Armor():
     all_armor = []
     
     for category, category_list in Armor_types.items():
-        print(f"{category}\n") 
+        print(f"\n{category}\n") 
         for armor in category_list:
             all_armor.append(armor)
             print(armor)
