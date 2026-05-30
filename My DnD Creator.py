@@ -90,14 +90,16 @@ def Armor():
         "Heavy" : ["Ring Mail", "Chain Mail", "Splint"]
     }
     all_armor = []
-    for category_list in Armor_types.values():
+    
+    for category, category_list in Armor_types.items():
+        print(f"{category}\n") 
         for armor in category_list:
             all_armor.append(armor)
             print(armor)
+            
     return all_armor
-all_armor = Armor()
 
-def Armor():
+"""def Armor():
     Armor_types = { 
         "No Armor" : ["No Armor"],
         "Light Armor" : ["Padded Armor", "Studded Leather"],
@@ -109,7 +111,7 @@ def Armor():
         for armor in category_list:
             all_armor.append(armor)
             #print(armor)
-    return all_armor
+    return all_armor"""
 #all_armor = Armor()
 
 def Armor_selection():
