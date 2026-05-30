@@ -92,7 +92,7 @@ def Armor():
     all_armor = []
     
     for category, category_list in Armor_types.items():
-        print(f"{category}\n") 
+        print(f"\n{category}\n") 
         for armor in category_list:
             all_armor.append(armor)
             print(armor)
@@ -150,16 +150,23 @@ def Weapon():
     }
     """Find a way to insert the weapon damage, type of damage and the primary stat for the weapon."""
     
-    for category_list in Weapon_types.values():
+    """for category_list in Weapon_types.values():
         for weapon in category_list:
-            print(weapon)
+            print(weapon)"""
             
     all_weapons = []
-    for category_list in Weapon_types.values(): 
+    """for category_list in Weapon_types.values(): 
         for weapon in category_list:
             all_weapons.append(weapon)
             #print(all_weapons)
+    return all_weapons"""
+    for category, category_list in Weapon_types.items():
+        print(f"\n{category}\n")
+        for weapon in category_list:
+            all_weapons.append(weapon)
+            print(weapon)
     return all_weapons 
+
 
 def Weapon_selection():
     armory = Weapon()
