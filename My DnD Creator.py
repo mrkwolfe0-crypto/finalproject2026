@@ -178,12 +178,9 @@ def Weapon_selection():
     
 #pstats = Player_stat()
 a = parmor
-
 w = Weapon_selection()
 c = Player_class()
 name = input("enter name: ")
-
-
 print(f"{name}, {c}, {w}")
 print(f"Armor", {a})
 AC()
