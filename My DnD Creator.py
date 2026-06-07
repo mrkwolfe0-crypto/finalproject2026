@@ -185,3 +185,14 @@ print(f"{name}, {c}, {w}")
 print(f"Armor", {a})
 AC()
 print(pstats)
+
+"""
+character = {
+    "name": ...,
+    "class": ...,
+    "stats": ...,
+    "armor": ...,
+    "weapon": ...,
+    "ac": ...
+}
+"""
