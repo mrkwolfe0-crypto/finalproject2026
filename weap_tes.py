@@ -4,30 +4,21 @@ def Weapon():
         "Simple_range" : ["Light Crossbows", "Shortbows", "Darts", "Slings"],
         "Martial_melee" : ["Longswords", "Greataxes", "Rapiers", "Halberds"],
         "Martial_ranged" : ["Longbows", "Heavy Crossbows", "Hand Crossbows"],
-    }
-    
-    for category_list in Weapon_types.values():
-        for weapon in category_list:
-            print(weapon)
-            
+        }
     all_weapons = []
-    for category_list in Weapon_types.values(): 
+    for category, category_list in Weapon_types.items():
+        print(f"\n{category}\n")
+        # FIXED: This loop is now nested inside the category loop
         for weapon in category_list:
             all_weapons.append(weapon)
+            print(weapon)
             
-    return all_weapons 
-Weapon()
+    return all_weapons
+"""Find a way to insert the weapon damage, type of damage and the primary stat for the weapon."""
 
 def Weapon_selection():
     armory = Weapon()
-    weapon_selected = False
-    while not weapon_selected:
-        choose_weapon = input("Choose desired weapon of choice: ").title().capitalize() 
+    while True:
+        choose_weapon = input("Choose desired weapon of choice: \n").title()
         if choose_weapon in armory:
-            print(f"You have chosen the {choose_weapon}")
-            weapon_selected = True
             return choose_weapon
-        else:
-            print(f"{choose_weapon} is not in the armory. Try again.")
-            return
-Weapon_selection()
