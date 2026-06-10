@@ -36,31 +36,47 @@ print("\nAbility Modifiers")
 for stat_name, score in pstats.items():
     mod = get_modifier(score)
     print(f"{stat_name}: {score:<5} Modifier: {mod}")
-
 """Find a way to insert the weapon damage, type of damage and the primary stat for the weapon."""
 """Weapon {Damage Die, Damage Type, Primary Stat}"""
 """def Weapon():
     Weapon_types = {
-        "Simple_melee" : 
-            {"Dagger": {"damage":"1D4", "type":"Piercing","stat":"DEX", "properties":["Finese","Light","Thrown(20/60)"]},
-            {"Clubs" },
-            {"Maces" }, 
-            {"Spears" },
-            {"Quarterstaffs" },
-        "Simple_range" : 
-            {"Light Crossbows", 
-            {"Shortbows", 
-            {"Darts", 
-            {"Slings"],
-        "Martial_melee" : 
-            {"Longswords", 
-            {"Greataxes", 
-            {"Rapiers", 
-            {"Halberds"],
-        "Martial_ranged" : 
-            {"Longbows", 
-            {"Heavy Crossbows", 
-            {"Hand Crossbows"],
+        "Category" (Category Key) : { 
+          "Weapon name": {damage/die, type, Primary stat, ?Properties},
+          "Weapon name": {damage/die, type, Primary stat, ?Properties},
+          "Weapon name": {damage/die, type, Primary stat, ?Properties}
+          },
+        "Category" (Category Key) : { 
+          "Weapon name": {damage/die, type, Primary stat, ?Properties},
+          "Weapon name": {damage/die, type, Primary stat, ?Properties},
+          "Weapon name": {damage/die, type, Primary stat, ?Properties}
+          },"""
+
+"""def Weapon():
+    Weapon_types = {
+        "Simple_melee" : {
+            "Dagger": {"damage":"1D4", "type":"Piercing","stat":"DEX", "properties":["Finese","Light","Thrown(20/60)"]},
+            "Clubs":{ },
+            "Maces":{ }, 
+            "Spears":{ },
+            "Quarterstaffs":{ },
+            },
+        "Simple_range" : {
+            "Light Crossbows":{ },
+            "Shortbows":{ },
+            "Darts":{ },
+            "Slings":{ },
+            },
+        "Martial_melee" : {
+            "Longswords":{ },
+            "Greataxes":{ },
+            "Rapiers":{ },
+            "Halberds":{ },
+            },
+        "Martial_ranged" : {
+            "Longbows":{ },
+            "Heavy Crossbows":{ },
+            "Hand Crossbows":{ },
+            },
         }"""
 def Weapon():
     Weapon_types = {
@@ -72,15 +88,12 @@ def Weapon():
     all_weapons = []
     for category, category_list in Weapon_types.items():
         print(f"\n{category}\n")
-        # FIXED: This loop is now nested inside the category loop
         for weapon in category_list:
             all_weapons.append(weapon)
             print(weapon)
             
     return all_weapons
-def weapon_data():
-    "Dagger":  "die""1D4","type":Piercing", "stat":"DEX"}
-    
+
 def Weapon_selection():
     armory = Weapon()
     while True:
