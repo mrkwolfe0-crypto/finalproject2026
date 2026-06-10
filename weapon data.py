@@ -35,8 +35,7 @@ print(f"Stats generated: {pstats}")
 print("\nAbility Modifiers")
 for stat_name, score in pstats.items():
     mod = get_modifier(score)
-
-print(f"{stat_name}: {score}  Modifier: {mod}")
+    print(f"{stat_name}: {score:<5} Modifier: {mod}")
 
 """Find a way to insert the weapon damage, type of damage and the primary stat for the weapon."""
 """Weapon {Damage Die, Damage Type, Primary Stat}"""
