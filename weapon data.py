@@ -28,7 +28,41 @@ def Player_stat():
 
 def get_modifier(Player_stat):
     return (Player_stat - 10) // 2
-    
+
+pstats = Player_stat()
+print(f"Stats generated: {pstats}")
+
+print("\nAbility Modifiers")
+for stat_name, score in pstats.items():
+    mod = get_modifier(score)
+
+print(f"{stat_name}: {score}  Modifier: {mod}")
+
+"""Find a way to insert the weapon damage, type of damage and the primary stat for the weapon."""
+"""Weapon {Damage Die, Damage Type, Primary Stat}"""
+"""def Weapon():
+    Weapon_types = {
+        "Simple_melee" : 
+            {"Dagger": {"damage":"1D4", "type":"Piercing","stat":"DEX", "properties":["Finese","Light","Thrown(20/60)"]},
+            {"Clubs" },
+            {"Maces" }, 
+            {"Spears" },
+            {"Quarterstaffs" },
+        "Simple_range" : 
+            {"Light Crossbows", 
+            {"Shortbows", 
+            {"Darts", 
+            {"Slings"],
+        "Martial_melee" : 
+            {"Longswords", 
+            {"Greataxes", 
+            {"Rapiers", 
+            {"Halberds"],
+        "Martial_ranged" : 
+            {"Longbows", 
+            {"Heavy Crossbows", 
+            {"Hand Crossbows"],
+        }"""
 def Weapon():
     Weapon_types = {
         "Simple_melee" : ["Dagger", "Clubs", "Maces", "Spears", "Quarterstaffs"],
@@ -45,8 +79,9 @@ def Weapon():
             print(weapon)
             
     return all_weapons
-"""Find a way to insert the weapon damage, type of damage and the primary stat for the weapon."""
-
+def weapon_data():
+    "Dagger":  "die""1D4","type":Piercing", "stat":"DEX"}
+    
 def Weapon_selection():
     armory = Weapon()
     while True:
@@ -54,6 +89,5 @@ def Weapon_selection():
         if choose_weapon in armory:
             return choose_weapon
 
-def weapon_data():
-  #Weapon {Damage Die, Damage Type, Primary Stat}
+
   
