@@ -129,3 +129,32 @@ def Weapon():
         "Simple_melee" : ["Dagger", "Clubs", "Maces", "Spears", "Quarterstaffs"],
         "Simple_range" : ["Light Crossbows", "Shortbows", "Darts", "Slings"],
         "Martial_melee" : ["Longswords", "Greataxes", "Rapiers", "Halberds"],
+        "Martial_ranged" : ["Longbows", "Heavy Crossbows", "Hand Crossbows"],
+    }
+    """Find a way to insert the weapon damage, type of damage and the primary stat for the weapon."""
+
+    all_weapons = []
+    for category, category_list in Weapon_types.items():
+        print(f"\n{category}\n")
+        for weapon in category_list:
+            all_weapons.append(weapon)
+            print(weapon)
+    return all_weapons 
+
+def Weapon_selection():
+    armory = Weapon()
+    while True:
+        choose_weapon = input("Choose desired weapon of choice: ").title()
+        if choose_weapon in armory:
+            return choose_weapon
+    
+a = parmor
+
+w = Weapon_selection()
+c = Player_class()
+name = input("enter name: ")
+
+print(f"\n{name}, {c}, {w}")
+print(f"\nArmor Details ({parmor})")
+print(f"Base AC: {stats['base']} | Dex Mod Applied: {applicable_dex} | Total AC: {pac}")
+print(pstats)
