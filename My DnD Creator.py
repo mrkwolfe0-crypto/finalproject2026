@@ -160,7 +160,7 @@ def Weapon():
             all_weapons.append(weapon)
             #print(all_weapons)
     return all_weapons"""
-     for category, category_list in Weapon_types.items():
+    for category, category_list in Weapon_types.items():
         print(f"\n{category}\n")
         for weapon in category_list:
             all_weapons.append(weapon)
