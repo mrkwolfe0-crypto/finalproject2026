@@ -32,17 +32,22 @@ def get_modifier(Player_stat):
 
 
 pstats = Player_stat()
-
-
 print(f"Stats generated: {pstats}")
 
 print("\nAbility Modifiers")
 for stat_name, score in pstats.items():
     mod = get_modifier(score)
+<<<<<<< HEAD
     print(f"{stat_name}: {score}  Modifier: {mod}")
 
+=======
 
+    print(f"{stat_name}: {score:5d}  Modifier: {mod}")
+>>>>>>> 38c590cf1e49a51b96bb5017c85852b467a18470
+
+#Armor, Base AC for armor, Dex modifier, Cap
 Armor_bonuses = {
+<<<<<<< HEAD
     #Armor, Base AC for armor, Dex modifier, Cap
     "No Armor" : {"base": 10, "dex_mod": None},
     "Padded Armor": {"base": 11, "dex_mod": None}, 
@@ -67,6 +72,31 @@ def Player_class():
         if player_class in classes:
             print(f"You have chosen the path of the {player_class}")
             return player_class
+=======
+    "No Armor" : {"base": 10, "dex_mod": None},
+    "Padded Armor": {"base": 11, "dex_mod": None},
+    "Studded Leather": {"base":12, "dex_mod": None},
+    "Hide" : {"base":14, "dex_mod":2},
+    "Scale Mail" : {"base":14, "dex_mod":2},
+    "Breastplate" : {"base":14, "dex_mod":2},
+    "Half Plate" : {"base":15, "dex_mod":2},
+    "Ring Mail" : {"base":14, "dex_mod":0},
+    "Chain Mail" : {"base":18, "dex_mod":0},
+    "Splint" : {"base":17, "dex_mod":0}
+    }
+
+def Player_class():
+    classes = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard", "Artificer"]
+    for player_class in classes:
+        print(player_class)
+    while True:
+        player_class = input("Choose your class: \n").capitalize()
+        if player_class in classes:
+            print(f"You have chosen the path of the {player_class}")
+            return player_class
+        print("Class not found.")
+#Player_class()
+>>>>>>> 38c590cf1e49a51b96bb5017c85852b467a18470
 
 """
 Instead of rolling, you use a formula based on the type of armor you are wearing:
@@ -88,11 +118,16 @@ The Formula
     Round down to the nearest whole number. 
 """
 def Armor():
+<<<<<<< HEAD
     Armor_types = { 
+=======
+    Armor_types = {
+>>>>>>> 38c590cf1e49a51b96bb5017c85852b467a18470
         "No Armor" : ["No Armor"],
         "Light Armor" : ["Padded Armor", "Studded Leather"],
         "Medium Armor" : ["Hide", "Scale Mail", "Breastplate", "Half Plate"],
         "Heavy" : ["Ring Mail", "Chain Mail", "Splint"]
+<<<<<<< HEAD
     }
     all_armor = []
 
@@ -102,16 +137,31 @@ def Armor():
             all_armor.append(armor)
             print(armor)
 
+=======
+        }
+    all_armor = []
+    for category, category_list in Armor_types.items():
+        print(f"\n{category}\n")
+        for armor in category_list:
+            all_armor.append(armor)
+            print(armor)
+>>>>>>> 38c590cf1e49a51b96bb5017c85852b467a18470
     return all_armor
 
 
 def Armor_selection():
     armor_armory = Armor()
     while True:
+<<<<<<< HEAD
         choose_armor = input("Choose desired armor of choice: ").title()
         if choose_armor in armor_armory:
             return choose_armor
 
+=======
+        choose_armor = input("Choose desired armor of choice: \n").title()
+        if choose_armor in armor_armory:
+            return choose_armor
+>>>>>>> 38c590cf1e49a51b96bb5017c85852b467a18470
 
 parmor = Armor_selection()
 
@@ -130,6 +180,7 @@ def Weapon():
         "Simple_range" : ["Light Crossbows", "Shortbows", "Darts", "Slings"],
         "Martial_melee" : ["Longswords", "Greataxes", "Rapiers", "Halberds"],
         "Martial_ranged" : ["Longbows", "Heavy Crossbows", "Hand Crossbows"],
+<<<<<<< HEAD
     }
     """Find a way to insert the weapon damage, type of damage and the primary stat for the weapon."""
 
@@ -140,21 +191,55 @@ def Weapon():
             all_weapons.append(weapon)
             print(weapon)
     return all_weapons 
+=======
+        }
+    all_weapons = []
+    for category, category_list in Weapon_types.items():
+        print(f"\n{category}\n")
+        # FIXED: This loop is now nested inside the category loop
+        for weapon in category_list:
+            all_weapons.append(weapon)
+            print(weapon)
+            
+    return all_weapons
+"""Find a way to insert the weapon damage, type of damage and the primary stat for the weapon."""
+>>>>>>> 38c590cf1e49a51b96bb5017c85852b467a18470
 
 def Weapon_selection():
     armory = Weapon()
     while True:
+<<<<<<< HEAD
         choose_weapon = input("Choose desired weapon of choice: ").title()
         if choose_weapon in armory:
             return choose_weapon
     
+=======
+        choose_weapon = input("Choose desired weapon of choice: \n").title()
+        if choose_weapon in armory:
+            return choose_weapon
+#pstats = Player_stat()
+>>>>>>> 38c590cf1e49a51b96bb5017c85852b467a18470
 a = parmor
 
 w = Weapon_selection()
 c = Player_class()
-name = input("enter name: ")
+name = input("enter name: \n")
 
+<<<<<<< HEAD
 print(f"\n{name}, {c}, {w}")
 print(f"\nArmor Details ({parmor})")
 print(f"Base AC: {stats['base']} | Dex Mod Applied: {applicable_dex} | Total AC: {pac}")
 print(pstats)
+=======
+"""print(f"{name}, {c}, {w}")
+print(f"\nArmor Details ({parmor})")
+print(f"Base AC: {stats['base']} | Dex Mod Applied: {applicable_dex} | Total AC: {pac}")
+print(pstats)"""
+print(f"\nCHARACTER SUMMARY\n"
+      f"Name: {name} | Class: {c} | Weapon: {w}\n"
+      f"Armor Details ({parmor}):\n"
+      f"Base AC: {stats['base']} | Dex Mod Applied: {applicable_dex} | Total AC: {pac}\n\n"
+      f"Ability Scores:\n{pstats}")
+
+
+>>>>>>> 38c590cf1e49a51b96bb5017c85852b467a18470
