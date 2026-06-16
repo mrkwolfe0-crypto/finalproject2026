@@ -43,7 +43,6 @@ for stat_name, score in pstats.items():
 
 #Armor, Base AC for armor, Dex modifier, Cap
 Armor_bonuses = {
-
     #Armor, Base AC for armor, Dex modifier, Cap
     "No Armor" : {"base": 10, "dex_mod": None},
     "Padded Armor": {"base": 11, "dex_mod": None}, 
@@ -68,18 +67,6 @@ def Player_class():
         if player_class in classes:
             print(f"You have chosen the path of the {player_class}")
             return player_class
-
-    "No Armor" : {"base": 10, "dex_mod": None},
-    "Padded Armor": {"base": 11, "dex_mod": None},
-    "Studded Leather": {"base":12, "dex_mod": None},
-    "Hide" : {"base":14, "dex_mod":2},
-    "Scale Mail" : {"base":14, "dex_mod":2},
-    "Breastplate" : {"base":14, "dex_mod":2},
-    "Half Plate" : {"base":15, "dex_mod":2},
-    "Ring Mail" : {"base":14, "dex_mod":0},
-    "Chain Mail" : {"base":18, "dex_mod":0},
-    "Splint" : {"base":17, "dex_mod":0}
-    }
 
 def Player_class():
     classes = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard", "Artificer"]
