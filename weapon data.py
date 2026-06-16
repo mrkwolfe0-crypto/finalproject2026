@@ -84,13 +84,15 @@ def Weapon_selection(weapon_database):
         for category, weapons in weapon_database.items():
             if choice in weapons:
                 return choice, weapons[choice]
-        print("Weapon not found. Try again.")
 
+weapon_name, weapon_stats= Weapon_selection(weapon_data())
 stat_needed = weapon_stats["stat"]
-stat_score = pstats.get(stat_key)
+stat_score = pstats.get(stat_needed)
 modifier = get_modifier(stat_score)
 print(f"To use your {weapon_name}, you use {stat_needed} (Score: {stat_score}), "
       f"giving you a modifier of: {modifier}")
+
+
 
 """def Weapon_selection():
     armory = Weapon()
