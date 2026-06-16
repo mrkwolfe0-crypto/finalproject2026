@@ -38,7 +38,7 @@ print("\nAbility Modifiers")
 for stat_name, score in pstats.items():
     mod = get_modifier(score)
     #print(f"{stat_name}: {score}  Modifier: {mod}")
-    print(f"{stat_name}: {score:5d}  Modifier: {mod}")
+    print(f"{stat_name}: {score:5d} Modifier: {mod}")
 
 
 #Armor, Base AC for armor, Dex modifier, Cap
