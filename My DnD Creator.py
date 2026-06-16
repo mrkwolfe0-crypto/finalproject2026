@@ -185,7 +185,19 @@ print(f"{name}, {c}, {w}")
 print(f"Armor", {a})
 AC()
 print(pstats)
-
+"""
+I will encounter an error as the class main stat will conflict with the weapons main stat, the highest wins, this will maintain the players agency to freely choose and be a battle mage or a warrior with magic.
+stats_list = [pstats["STR"], pstats["DEX"], pstats["CON"]]
+stats_list.sort(reverse=True)
+best_stat = stats_list[0]
+or
+dex_score = pstats.get("DEX")
+str_score = pstats.get("STR")
+if dex_score > str_score:
+    modifier = get_modifier(dex_score)
+else:
+    modifier = get_modifier(str_score)
+"""
 """
 character = {
     "name": ...,
