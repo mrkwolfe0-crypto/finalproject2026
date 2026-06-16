@@ -56,7 +56,7 @@ Armor_bonuses = {
     "Splint" : {"base":17, "dex_mod":0}
 }
 
-def Player_class():
+"""def Player_class():
     classes = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
                "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard",
                "Artificer"]
@@ -66,7 +66,7 @@ def Player_class():
         player_class = input("Choose your class: ").capitalize()
         if player_class in classes:
             print(f"You have chosen the path of the {player_class}")
-            return player_class
+            return player_class"""
 
 def Player_class():
     classes = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard", "Artificer"]
@@ -109,13 +109,12 @@ def Armor():
         "Heavy" : ["Ring Mail", "Chain Mail", "Splint"]
 
     }
-    all_armor = []
-
+    """all_armor = []
     for category, category_list in Armor_types.items():
         print(f"\n{category}\n") 
         for armor in category_list:
             all_armor.append(armor)
-            print(armor)
+            print(armor)"""
 
 
         }
@@ -170,14 +169,14 @@ def Weapon():
     return all_weapons 
 
         }
-    all_weapons = []
+    """all_weapons = []
     for category, category_list in Weapon_types.items():
         print(f"\n{category}\n")
         for weapon in category_list:
             all_weapons.append(weapon)
             print(weapon)
             
-    return all_weapons
+    return all_weapons"""
 """Find a way to insert the weapon damage, type of damage and the primary stat for the weapon."""
 
 
