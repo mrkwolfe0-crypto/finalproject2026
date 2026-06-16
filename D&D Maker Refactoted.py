@@ -114,10 +114,8 @@ def Armor():
         print(f"\n{category}\n") 
         for armor in category_list:
             all_armor.append(armor)
-            print(armor)"""
-
-
-        }
+            print(armor)
+    }"""
     all_armor = []
     for category, category_list in Armor_types.items():
         print(f"\n{category}\n")
@@ -168,7 +166,6 @@ def Weapon():
             print(weapon)
     return all_weapons 
 
-        }
     """all_weapons = []
     for category, category_list in Weapon_types.items():
         print(f"\n{category}\n")
@@ -178,7 +175,6 @@ def Weapon():
             
     return all_weapons"""
 """Find a way to insert the weapon damage, type of damage and the primary stat for the weapon."""
-
 
 def Weapon_selection():
     armory = Weapon()
@@ -217,6 +213,7 @@ print(f"\nCHARACTER SUMMARY\n"
       f"Ability Scores:\n{pstats}")
 """
 I will encounter an error as the class main stat will conflict with the weapons main stat, the highest wins, this will maintain the players agency to freely choose and be a battle mage or a warrior with magic.
+
 stats_list = [pstats["STR"], pstats["DEX"], pstats["CON"]]
 stats_list.sort(reverse=True)
 best_stat = stats_list[0]
