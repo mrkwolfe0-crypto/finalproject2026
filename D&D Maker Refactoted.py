@@ -56,8 +56,6 @@ Armor_bonuses = {
     "Splint" : {"base":17, "dex_mod":0}
 }
 
-
-
 def Player_class():
     classes = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard", "Artificer"]
     for player_class in classes:
@@ -70,34 +68,12 @@ def Player_class():
         print("Class not found.")
 #Player_class()
 
-
-"""
-Instead of rolling, you use a formula based on the type of armor you are wearing:
-    No Armor: +10 dex modifier
-    .
-    Light Armor: base armor + dex modifier, use at end with an else
-    (e.g., Leather is
-    ).
-    Medium Armor: base armor + dex modifier
-    (up to a maximum of +2).
-    Heavy Armor: A flat number that ignores your Dexterity (e.g., Plate is
-    ).
-    Shields: Add a flat +2 to your total AC
-To determine your modifier in D&D 5e, you use a simple formula based on your base ability score (like Dexterity or Strength). 
-The Formula
-
-    Subtract 10 from your ability score.
-    Divide the result by 2.
-    Round down to the nearest whole number. 
-"""
 def Armor():
     Armor_types = {
-
         "No Armor" : ["No Armor"],
         "Light Armor" : ["Padded Armor", "Studded Leather"],
         "Medium Armor" : ["Hide", "Scale Mail", "Breastplate", "Half Plate"],
         "Heavy" : ["Ring Mail", "Chain Mail", "Splint"]
-
     }
 
     all_armor = []
@@ -178,16 +154,25 @@ def Weapon_selection(weapon_database):
         for category, weapons in weapon_database.items():
             if choice in weapons:
                 return choice, weapons[choice]
-
+"""
 weapon_name, weapon_stats= Weapon_selection(weapon_data())
 stat_needed = weapon_stats["stat"]
 stat_score = pstats.get(stat_needed)
 modifier = get_modifier(stat_score)
 print(f"To use your {weapon_name}, you use {stat_needed} (Score: {stat_score}), "
       f"giving you a modifier of: {modifier}")
-
+"""
 
 #pstats = Player_stat()
+def Character_Creation():
+    pstats = Player_stat()
+    print(f"\nStats: {pstats}")
+    print("\nAbility Modifiers\n")
+    for stat_name, score in pstats.items():
+        mod = get_modifier(score)
+        print(f"{stat_name:8}: {score:5d} Modifier: {mod:+2d}")
+    parmor = Armor_selection()
+    return pstats
 
 a = parmor
 w = Weapon_selection(weapon_data())
@@ -196,8 +181,12 @@ w_stats = w[1]
 c = Player_class()
 name = input("enter name: \n")
 
+#Apparantly that the "" creates a closed loop and '' will not meaning "this is"home""" excludes the "home" in the print. My original code used "" exclusively as that is how I set the weapons list and all the other but I kept on getting type miss matches.
 print(f"\nCharacter Sheet\n"
       f"Name: {name} | Class: {c} | Weapon: {w_name}\n"
-      f"Damage: {w_stats["daamage"]} | Type: {w_stats["type"]}\n"
-      )
+      f"Damage: {w_stats['damage']} | Type: {w_stats['type']}\n"
+      f"Armor Details({parmor}):\n"
+      f"Base AC: {stats['base']} | Dex Mod Applied: {applicable_dex} | Total AC: {pac}\n\n"
+      f"Ability Scores:\n{pstats}\n")
+
 
