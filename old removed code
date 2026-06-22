@@ -1,0 +1,58 @@
+def Weapon():
+    Weapon_types = {
+        "Simple_melee" : ["Dagger", "Clubs", "Maces", "Spears", "Quarterstaffs"],
+        "Simple_range" : ["Light Crossbows", "Shortbows", "Darts", "Slings"],
+        "Martial_melee" : ["Longswords", "Greataxes", "Rapiers", "Halberds"],
+        "Martial_ranged" : ["Longbows", "Heavy Crossbows", "Hand Crossbows"],
+    }
+    Find a way to insert the weapon damage, type of damage and the primary stat for the weapon.
+
+    all_weapons = []
+    for category, category_list in Weapon_types.items():
+        print(f"\n{category}\n")
+        for weapon in category_list:
+            all_weapons.append(weapon)
+            print(weapon)
+    return all_weapons
+
+    all_weapons = []
+    for category, category_list in Weapon_types.items():
+        print(f"\n{category}\n")
+        for weapon in category_list:
+            all_weapons.append(weapon)
+            print(weapon)
+            
+    return all_weapons
+
+def Weapon_selection():
+    armory = Weapon()
+    while True:
+
+        choose_weapon = input("Choose desired weapon of choice: ").title()
+        if choose_weapon in armory:
+            return choose_weapon
+    
+
+        choose_weapon = input("Choose desired weapon of choice: \n").title()
+        if choose_weapon in armory:
+            return choose_weapon
+        
+    all_armor = []
+    for category, category_list in Armor_types.items():
+        print(f"\n{category}\n") 
+        for armor in category_list:
+            all_armor.append(armor)
+            print(armor)
+    }
+
+def Player_class():
+    classes = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
+               "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard",
+               "Artificer"]
+    for player_class in classes:
+        print(player_class)
+    while True:
+        player_class = input("Choose your class: ").capitalize()
+        if player_class in classes:
+            print(f"You have chosen the path of the {player_class}")
+            return player_class

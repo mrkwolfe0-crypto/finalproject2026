@@ -56,17 +56,7 @@ Armor_bonuses = {
     "Splint" : {"base":17, "dex_mod":0}
 }
 
-"""def Player_class():
-    classes = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
-               "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard",
-               "Artificer"]
-    for player_class in classes:
-        print(player_class)
-    while True:
-        player_class = input("Choose your class: ").capitalize()
-        if player_class in classes:
-            print(f"You have chosen the path of the {player_class}")
-            return player_class"""
+
 
 def Player_class():
     classes = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard", "Artificer"]
@@ -109,13 +99,7 @@ def Armor():
         "Heavy" : ["Ring Mail", "Chain Mail", "Splint"]
 
     }
-    """all_armor = []
-    for category, category_list in Armor_types.items():
-        print(f"\n{category}\n") 
-        for armor in category_list:
-            all_armor.append(armor)
-            print(armor)
-    }"""
+
     all_armor = []
     for category, category_list in Armor_types.items():
         print(f"\n{category}\n")
@@ -151,78 +135,69 @@ print(f"Base AC: {stats['base']} | Dex Mod Applied: {applicable_dex} | Total AC:
 
 def Weapon():
     Weapon_types = {
-        "Simple_melee" : ["Dagger", "Clubs", "Maces", "Spears", "Quarterstaffs"],
-        "Simple_range" : ["Light Crossbows", "Shortbows", "Darts", "Slings"],
-        "Martial_melee" : ["Longswords", "Greataxes", "Rapiers", "Halberds"],
-        "Martial_ranged" : ["Longbows", "Heavy Crossbows", "Hand Crossbows"],
-    }
-    """Find a way to insert the weapon damage, type of damage and the primary stat for the weapon."""
-
+        "Simple_melee" : {
+            "Dagger": {"damage":"1D4", "type":"Piercing","stat":"DEX", "properties":["Finese","Light","Thrown(20/60)"]},
+            "Clubs":{"damage":"1D4", "type":"Bludgeoning","stat":"STR", "properties":["Light","Two-Handed(1H)"] },
+            "Maces":{"damage":"1D4", "type":"Bludgeoning","stat":"STR", "properties":["Light"] }, 
+            "Spears":{"damage":"1D4", "type":"Piercing","stat":"STR", "properties":["Light","Versatile(1H/2H)","Thrown(20/60)"] },
+            "Quarterstaffs":{"damage":"1D4", "type":"Bludgeoning","stat":"STR", "properties":["Versatile(1H/2H)"] },
+            },
+        "Simple_range" : {
+            "Light Crossbows":{"damage":"1D8", "type":"Piercing","stat":"DEX", "properties":["Two-Handed(1H)"] }, 
+            "Shortbows":{"damage":"1D6", "type":"Piercing","stat":"DEX", "properties":["Two-Handed(1H)","Thrown(80/320)"] },
+            "Darts":{"damage":"1D4", "type":"Piercing","stat":"DEX", "properties":["Finese","Light","Thrown(20/60)"] },
+            "Slings":{"damage":"1D4", "type":"Piercing","stat":"DEX", "properties":["Light","Thrown(30/120)"] },
+            },
+        "Martial_melee" : {
+            "Longswords":{"damage":"1D8", "type":"Piercing/Bludgeoning","stat":"DEX", "properties":["Versatile(1H/2H)"] },
+            "Greataxes":{"damage":"1D12", "type":"Slashing","stat":"STR", "properties":["Heavy","Two-Handed(1H)"] },
+            "Rapiers":{"damage":"1D8", "type":"Piercing","stat":"DEX", "properties":["Finese","Light"] },
+            "Halberds":{"damage":"1D10", "type":"Slashing","stat":"STR", "properties":["Heavy","Two-Handed(1H)"] },
+            },
+        "Martial_ranged" : {
+            "Longbows":{"damage":"1D8", "type":"Peircing", "stat":"DEX", "properties":["Ammunition(150/600)", "Heavy", "Two-Handed"] },
+            "Heavy Crossbows":{"damage":"1D10", "type":"Piercing", "stat":"DEX", "properties":["Ammunition(100/400)","Heavy","Two-Handed(1H)"] },
+            "Hand Crossbows":{"damage":"1D6", "type":"Piercing", "stat":"DEX", "properties":["Ammunition(30/120)","Light","Loading","Two-Handed(1H)"] },
+            },
+        }
     all_weapons = []
-    for category, category_list in Weapon_types.items():
+    for category, weapons in Weapon_types.items():
         print(f"\n{category}\n")
-        for weapon in category_list:
-            all_weapons.append(weapon)
-            print(weapon)
-    return all_weapons 
-
-    """all_weapons = []
-    for category, category_list in Weapon_types.items():
-        print(f"\n{category}\n")
-        for weapon in category_list:
-            all_weapons.append(weapon)
-            print(weapon)
+        for weapon_name, weapon_details in weapons.items():
+            all_weapons.append(weapon_name)
+            print(f"  - {weapon_name} ({weapon_details['damage']} {weapon_details['type']})")
             
-    return all_weapons"""
-"""Find a way to insert the weapon damage, type of damage and the primary stat for the weapon."""
+    return Weapon_types
+def weapon_data():
+    weapon_database = Weapon()
+    return weapon_database
 
-def Weapon_selection():
-    armory = Weapon()
+def Weapon_selection(weapon_database):
     while True:
+        choice = input("\nChoose desired weapon: ").title()
+        for category, weapons in weapon_database.items():
+            if choice in weapons:
+                return choice, weapons[choice]
 
-        choose_weapon = input("Choose desired weapon of choice: ").title()
-        if choose_weapon in armory:
-            return choose_weapon
-    
+weapon_name, weapon_stats= Weapon_selection(weapon_data())
+stat_needed = weapon_stats["stat"]
+stat_score = pstats.get(stat_needed)
+modifier = get_modifier(stat_score)
+print(f"To use your {weapon_name}, you use {stat_needed} (Score: {stat_score}), "
+      f"giving you a modifier of: {modifier}")
 
-        choose_weapon = input("Choose desired weapon of choice: \n").title()
-        if choose_weapon in armory:
-            return choose_weapon
+
 #pstats = Player_stat()
 
 a = parmor
-
-w = Weapon_selection()
+w = Weapon_selection(weapon_data())
+w_name = w[0]
+w_stats = w[1]
 c = Player_class()
 name = input("enter name: \n")
 
-
-print(f"\n{name}, {c}, {w}")
-print(f"\nArmor Details ({parmor})")
-print(f"Base AC: {stats['base']} | Dex Mod Applied: {applicable_dex} | Total AC: {pac}")
-print(pstats)
-
-"""print(f"{name}, {c}, {w}")
-print(f"\nArmor Details ({parmor})")
-print(f"Base AC: {stats['base']} | Dex Mod Applied: {applicable_dex} | Total AC: {pac}")
-print(pstats)"""
-print(f"\nCHARACTER SUMMARY\n"
-      f"Name: {name} | Class: {c} | Weapon: {w}\n"
-      f"Armor Details ({parmor}):\n"
-      f"Base AC: {stats['base']} | Dex Mod Applied: {applicable_dex} | Total AC: {pac}\n\n"
-      f"Ability Scores:\n{pstats}")
-"""
-I will encounter an error as the class main stat will conflict with the weapons main stat, the highest wins, this will maintain the players agency to freely choose and be a battle mage or a warrior with magic.
-
-stats_list = [pstats["STR"], pstats["DEX"], pstats["CON"]]
-stats_list.sort(reverse=True)
-best_stat = stats_list[0]
-or
-dex_score = pstats.get("DEX")
-str_score = pstats.get("STR")
-if dex_score > str_score:
-    modifier = get_modifier(dex_score)
-else:
-    modifier = get_modifier(str_score)
-"""
+print(f"\nCharacter Sheet\n"
+      f"Name: {name} | Class: {c} | Weapon: {w_name}\n"
+      f"Damage: {w_stats["daamage"]} | Type: {w_stats["type"]}\n"
+      )
 
