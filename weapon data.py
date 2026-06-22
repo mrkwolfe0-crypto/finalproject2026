@@ -41,27 +41,27 @@ def Weapon():
     Weapon_types = {
         "Simple_melee" : {
             "Dagger": {"damage":"1D4", "type":"Piercing","stat":"DEX", "properties":["Finese","Light","Thrown(20/60)"]},
-            "Clubs":{ },
-            "Maces":{ }, 
-            "Spears":{ },
-            "Quarterstaffs":{ },
+            "Clubs":{"damage":"1D4", "type":"Bludgeoning","stat":"STR", "properties":["Light","Two-Handed(1H)"] },
+            "Maces":{"damage":"1D4", "type":"Bludgeoning","stat":"STR", "properties":["Light"] }, 
+            "Spears":{"damage":"1D4", "type":"Piercing","stat":"STR", "properties":["Light","Versatile(1H/2H)","Thrown(20/60)"] },
+            "Quarterstaffs":{"damage":"1D4", "type":"Bludgeoning","stat":"STR", "properties":["Versatile(1H/2H)"] },
             },
         "Simple_range" : {
-            "Light Crossbows":{ },
-            "Shortbows":{ },
-            "Darts":{ },
-            "Slings":{ },
+            "Light Crossbows":{"damage":"1D8", "type":"Piercing","stat":"DEX", "properties":["Two-Handed(1H)"] }, 
+            "Shortbows":{"damage":"1D6", "type":"Piercing","stat":"DEX", "properties":["Two-Handed(1H)","Thrown(80/320)"] },
+            "Darts":{"damage":"1D4", "type":"Piercing","stat":"DEX", "properties":["Finese","Light","Thrown(20/60)"] },
+            "Slings":{"damage":"1D4", "type":"Piercing","stat":"DEX", "properties":["Light","Thrown(30/120)"] },
             },
         "Martial_melee" : {
-            "Longswords":{ },
-            "Greataxes":{ },
-            "Rapiers":{ },
-            "Halberds":{ },
+            "Longswords":{"damage":"1D8", "type":"Piercing/Bludgeoning","stat":"DEX", "properties":["Versatile(1H/2H)"] },
+            "Greataxes":{"damage":"1D12", "type":"Slashing","stat":"STR", "properties":["Heavy","Two-Handed(1H)"] },
+            "Rapiers":{"damage":"1D8", "type":"Piercing","stat":"DEX", "properties":["Finese","Light"] },
+            "Halberds":{"damage":"1D10", "type":"Slashing","stat":"STR", "properties":["Heavy","Two-Handed(1H)"] },
             },
         "Martial_ranged" : {
-            "Longbows":{ },
-            "Heavy Crossbows":{ },
-            "Hand Crossbows":{ },
+            "Longbows":{"damage":"1D8", "type":"Peircing", "stat":"DEX", "properties":["Ammunition(150/600)", "Heavy", "Two-Handed"] },
+            "Heavy Crossbows":{"damage":"1D10", "type":"Piercing", "stat":"DEX", "properties":["Ammunition(100/400)","Heavy","Two-Handed(1H)"] },
+            "Hand Crossbows":{"damage":"1D6", "type":"Piercing", "stat":"DEX", "properties":["Ammunition(30/120)","Light","Loading","Two-Handed(1H)"] },
             },
         }
     all_weapons = []
