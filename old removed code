@@ -56,3 +56,11 @@ def Player_class():
         if player_class in classes:
             print(f"You have chosen the path of the {player_class}")
             return player_class
+"""
+weapon_name, weapon_stats= Weapon_selection(weapon_data())
+stat_needed = weapon_stats["stat"]
+stat_score = pstats.get(stat_needed)
+modifier = get_modifier(stat_score)
+print(f"To use your {weapon_name}, you use {stat_needed} (Score: {stat_score}), "
+      f"giving you a modifier of: {modifier}")
+"""
