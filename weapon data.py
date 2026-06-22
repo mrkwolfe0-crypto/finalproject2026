@@ -112,6 +112,5 @@ print(f"To use your {weapon_name}, you use {stat_needed} (Score: {stat_score}), 
 """weapon_database = weapon_data()
 chosen_name, chosen_stats = Weapon_selection(weapon_database)
 print(f"You equipped the {chosen_name}!")"""
-#test
 
 
